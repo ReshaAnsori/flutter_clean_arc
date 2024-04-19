@@ -1,12 +1,11 @@
 // Unit Test file for create_user.dart
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_arc/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:flutter_clean_arc/features/authentication/domain/usecases/create_user.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockAuthRepo extends Mock implements AuthenticationRepository {}
+import 'authentication_repo.mock.dart';
 
 void main() {
   late CreateUser usecase;

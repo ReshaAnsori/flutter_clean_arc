@@ -5,7 +5,7 @@ import '../../../../core/utils/typedef.dart';
 abstract class AuthenticationRepository {
   const AuthenticationRepository();
 
-  ResultFuture<void> createUser({
+  VoidFuture createUser({
     required String createdAt,
     required String name,
     required String avatar,
