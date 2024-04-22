@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_arc/features/authentication/domain/entities/user.dart';
+import 'package:flutter_clean_arc/features/authentication/domain/entities/User.dart';
 import 'package:flutter_clean_arc/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:flutter_clean_arc/features/authentication/domain/usecases/get_users.dart';
 import 'package:flutter_test/flutter_test.dart';

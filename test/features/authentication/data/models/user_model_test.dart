@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_clean_arc/features/authentication/data/models/user_model.dart';
-import 'package:flutter_clean_arc/features/authentication/domain/entities/user.dart';
+import 'package:flutter_clean_arc/features/authentication/domain/entities/User.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../fixtures/fixture_reader.dart';

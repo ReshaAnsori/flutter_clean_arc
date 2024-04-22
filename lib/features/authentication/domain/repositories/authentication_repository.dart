@@ -1,4 +1,4 @@
-import 'package:flutter_clean_arc/features/authentication/domain/entities/user.dart';
+import 'package:flutter_clean_arc/features/authentication/domain/entities/User.dart';
 
 import '../../../../core/utils/typedef.dart';
 

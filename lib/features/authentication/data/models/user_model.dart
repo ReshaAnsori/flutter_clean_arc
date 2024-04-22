@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_clean_arc/features/authentication/domain/entities/user.dart';
+import 'package:flutter_clean_arc/features/authentication/domain/entities/User.dart';
 
 class UserModel extends User {
   const UserModel({

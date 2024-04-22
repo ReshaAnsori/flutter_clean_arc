@@ -4,7 +4,7 @@ import 'package:flutter_clean_arc/core/errors/failure.dart';
 import 'package:flutter_clean_arc/core/utils/typedef.dart';
 import 'package:flutter_clean_arc/features/authentication/data/datasource/remote/authentication_data_source.dart';
 import 'package:flutter_clean_arc/features/authentication/data/models/user_model.dart';
-import 'package:flutter_clean_arc/features/authentication/domain/entities/user.dart';
+import 'package:flutter_clean_arc/features/authentication/domain/entities/User.dart';
 import 'package:flutter_clean_arc/features/authentication/domain/repositories/authentication_repository.dart';
 
 class AuthenticationImplementation implements AuthenticationRepository {
