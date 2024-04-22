@@ -17,6 +17,6 @@ class APIFailure extends Failure {
     required super.statusCode,
   });
 
-  APIFailure.fromException(APIException ex)
-      : this(statusCode: ex.statusCode, message: ex.message);
+  APIFailure.fromException(APIException e)
+      : this(statusCode: e.statusCode, message: e.message);
 }

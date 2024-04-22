@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:flutter_clean_arc/core/errors/exceptions.dart';
+import 'package:flutter_clean_arc/core/errors/failure.dart';
+import 'package:flutter_clean_arc/core/utils/constants.dart';
 import 'package:flutter_clean_arc/features/authentication/data/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -23,7 +28,31 @@ class AuthenticationRemoteSourceImplementation
     required String createdAt,
     required String name,
     required String avatar,
-  }) async {}
+  }) async {
+    try {
+      final response = await _client.post(
+        Uri.parse("$baseUrl$createUsersEndpoint"),
+        body: jsonEncode(
+          {
+            'createdAt': createdAt,
+            'name': name,
+            'avatar': avatar,
+          },
+        ),
+      );
+
+      if (![200, 201].contains(response.statusCode)) {
+        throw APIException(
+          statusCode: response.statusCode,
+          message: response.body,
+        );
+      }
+    } on APIException {
+      rethrow;
+    } catch (e) {
+      throw APIException(statusCode: 505, message: e.toString());
+    }
+  }
 
   @override
   Future<List<UserModel>> getUsers() async {

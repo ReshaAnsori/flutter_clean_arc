@@ -14,7 +14,7 @@ class MockAuthenticationRemoteSource extends Mock
 void main() {
   late AuthenticationRemoteSource remoteSource;
   late AuthenticationImplementation repository;
-  const testException = APIException(500, "Someting went wrong");
+  const testException = APIException(statusCode: 500, message: "Someting went wrong");
 
   setUp(() {
     remoteSource = MockAuthenticationRemoteSource();
