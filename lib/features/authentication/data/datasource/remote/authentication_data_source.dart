@@ -6,6 +6,9 @@ import 'package:flutter_clean_arc/core/utils/constants.dart';
 import 'package:flutter_clean_arc/features/authentication/data/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../../../core/utils/typedef.dart';
+import '../../../domain/entities/User.dart';
+
 abstract class AuthenticationRemoteSource {
   Future<void> createUser({
     required String createdAt,
@@ -31,7 +34,7 @@ class AuthenticationRemoteSourceImplementation
   }) async {
     try {
       final response = await _client.post(
-        Uri.parse("$baseUrl$createUsersEndpoint"),
+        Uri.https(baseUrl, createUsersEndpoint),
         body: jsonEncode(
           {
             'createdAt': createdAt,
@@ -56,7 +59,23 @@ class AuthenticationRemoteSourceImplementation
 
   @override
   Future<List<UserModel>> getUsers() async {
-    // TODO: implement getUsers
-    throw UnimplementedError();
+    try {
+          var response = await _client.get(Uri.https(baseUrl, getUsersEndpoint));
+
+    if (response.statusCode != 200) {
+      throw APIException(
+        statusCode: response.statusCode,
+        message: response.body,
+      );
+    }
+
+    return List<DataMap>.from(jsonDecode(response.body) as List)
+        .map((e) => UserModel.fromMap(e))
+        .toList();
+    } on APIException {
+      rethrow;
+    } catch (e) {
+      throw APIException(statusCode: 505, message: e.toString());
+    }
   }
 }
